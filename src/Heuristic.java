@@ -4,23 +4,32 @@ public class Heuristic {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) //Proof of concept code here
+	public static void main(String[] args) 
 	{
-
+		//Proof of concept code here
 		
 		
 		
 	}
-	static Exercise genex() //function for generating an arbitrary set of exercises, tesing purposes only
-	{
-		String[] allgroups = {"Abdominal", "Biceps", 	//array representing 13 major muscle groups. provisional.
+	
+	//function for generating an arbitrary set of exercises, tesing purposes only
+	static Exercise genex() 
+	{	
+		//array representing 13 major muscle groups. provisional.
+		String[] allgroups = {"Abdominal", "Biceps", 	
 				"Deltoids", "Erector Spinae", "Gastrocnemius & Soleus", 
 				"Gluteus", "Hamstrings", "Latissimus Dorsi & Rhomboids", 
 				"Obliques", "Pectorals", "Quadriceps", "Trapezius", "Triceps"};
-		//String[] groups = {allgroups[5], allgroups[3]};
-		Exercise[] tmpexercises;			//temporary array for storing an arbitrary set of exercises
-		tmpexercises = new Exercise[39];	
-		int count = 0;	//counts index of tmpexercises
+		
+		
+		//temporary array for storing an arbitrary set of exercises
+		Exercise[] tmpexercises;			
+		tmpexercises = new Exercise[39];
+		
+		//counts index of tmpexercises as the function adds exercises to it
+		int count = 0;
+		
+		
 		//these 3 for loops loop through allgroups 3 times, generating an exercise for each
 		//muscle group (13), and looping 3 times (13 x 3 = 39 exercises total)
 		for (int i = 0; i < 3; i++)	
