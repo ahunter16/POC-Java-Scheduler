@@ -4,20 +4,20 @@ public class Exercise
 	String name;		//name of exercise
 	String mgroup; 		//main muscle group
 	String[] egroups;	//other muscle groups
-	int setlen;			//recommended length of a set
+	int repnumb;			//recommended length of a set
 	char skill; 		//skill level; b, i, e, (begin int, hard)
 	int rest;			//rest time between sets
 	int reptime;		//rough time taken to complete a rep
-	int sets;
+	int sets;			//number of sets
 	int comptime;		//time taken to complete all sets of an exercise
 	
 	public Exercise(String myname, String mymgroup, String[] myegroups, 
-			int mysetlen, char myskill, int myrest, int myreptime, int mysets, int mycomptime)
+			int myrepnumb, char myskill, int myrest, int myreptime, int mysets, int mycomptime)
 	{
 		name = myname;
 		mgroup = mymgroup;
 		egroups = myegroups;
-		setlen = mysetlen;
+		repnumb = myrepnumb;
 		skill = myskill;
 		rest = myrest;
 		reptime = myreptime;
@@ -67,7 +67,7 @@ public class Exercise
 				(int)(10*Math.random()+1), 'i', (int)(100*Math.random()+10), 
 				(int)(10*Math.random()+1), (int)(10*Math.random()+1), time);
 		
-		time = ((tmpexercise.setlen * tmpexercise.reptime) + tmpexercise.rest)* tmpexercise.sets - tmpexercise.rest;
+		time = ((tmpexercise.repnumb * tmpexercise.reptime) + tmpexercise.rest)* tmpexercise.sets - tmpexercise.rest;
 		tmpexercise.comptime = time;
 
 		return(tmpexercise);

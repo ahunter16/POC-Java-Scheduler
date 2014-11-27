@@ -10,7 +10,7 @@ public class Workout
 		int total= 0;
 		for (int i = 0; i < exercises.length; i++)
 		{
-			total += exercises[i].reptime * exercises[i].setlen;
+			total += exercises[i].reptime * exercises[i].repnumb;
 			total += exercises[i].rest * (exercises[i].sets -1);	
 		}
 		return total;

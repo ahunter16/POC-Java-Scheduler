@@ -16,19 +16,25 @@ public class Heuristic {
 	
 		int value =1;
 
-		Exercise exercises; 
-		while (value != 0)
-		{	
+		Exercise exercise;
+		Exercise[] exercises;
+		
+		//while (value != 0)
+		//{	
 			System.out.print("\nMake how many exercises? (0 terminates):\n");
 			value = scanner1.nextInt();
+			exercises = new Exercise[value];
 			for (int i = 0; i < value; i ++)
 			{
-				exercises = Exercise.genex();
-				System.out.print(exercises.name+", "+exercises.comptime+"\n");
-				
+				exercise = Exercise.genex();
+				System.out.print(exercise.name+", "+exercise.comptime+"\n");
+				exercises[i] = exercise;
 				
 			}
-		}
+			Workout[] workouts = algorithm(freedays, exercises);
+			
+			//print workouts[0].
+		//}
 		
 		//System.out.print(exercises[1].mgroup);
 		
@@ -38,6 +44,14 @@ public class Heuristic {
 
 		
 		
+	}
+	
+	static Workout[] algorithm(Day[] days, Exercise[] exercises)
+	{
+		Workout[] workouts;
+		
+		
+		return workouts;
 	}
 	
 
