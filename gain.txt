@@ -1,0 +1,38 @@
+Gain weight:
+
+x = read input for weeks
+
+week = list of lists with length x and sublist length 21
+
+for i = 1 to x
+	for j = 1 to 21
+	week[i][j].append(0)
+trainings = 4
+overlap = 0
+for i = 1 to x 
+	counte r= 0
+	for j = 1 to 21
+		if overlap > 0
+			overlap--
+			week [i][j] = 2
+			break
+		if week [i][j] == 0
+			week[i][j] = 1
+			counter++
+
+			if J < 18
+				week[i][j+1] = 2
+				week[i][j+2] = 2
+				week[i][j+3] = 2
+			elseif j = 19
+				week[i][j+1] = 2
+				week[i][j+2] = 2
+				overlap = 1
+			elseif j = 20
+				week[i][j+1] = 2
+				overlap = 2
+			elseif j = 21
+				 overlap = 3
+		if counter == 4
+			break
+	

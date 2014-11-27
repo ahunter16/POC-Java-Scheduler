@@ -9,9 +9,10 @@ public class Exercise
 	int rest;			//rest time between sets
 	int reptime;		//rough time taken to complete a rep
 	int sets;
+	int comptime;		//time taken to complete all sets of an exercise
 	
 	public Exercise(String myname, String mymgroup, String[] myegroups, 
-			int mysetlen, char myskill, int myrest, int myreptime, int mysets)
+			int mysetlen, char myskill, int myrest, int myreptime, int mysets, int mycomptime)
 	{
 		name = myname;
 		mgroup = mymgroup;
@@ -21,6 +22,7 @@ public class Exercise
 		rest = myrest;
 		reptime = myreptime;
 		sets = mysets;
+		comptime = mycomptime;
 		
 	}
 }

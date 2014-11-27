@@ -1,0 +1,28 @@
+Lose weight:
+
+x = read input for time in weeks "4 weeks = 1 month"
+weeks = list of lists with length x and sublist length 7
+
+for i = 1 to x
+	for j = 1 to 7
+		week[i][j].append 0
+	trainings = 3
+	flag = false
+
+	for i = 1 to x
+		counter = 0
+		for j = 1 to 7
+			if flag == true
+				flag = false
+				break
+			elseif week[i][j] == 0
+				week [i][j] = 1
+				counter ++
+				if j = 7
+					flag = true
+				else 
+					week[i][j] = 2
+			if coutner == 3
+				break
+
+draw-schedule(week)
