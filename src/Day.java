@@ -14,10 +14,10 @@ public class Day
 		freetime = mytime;
 	}
 	
-	static Day[] freetimes()
+	static Day[] freetimes(Scanner scanner2)
 	{
 		Day[] schedule;
-		Scanner scanner2 = new Scanner( System.in);
+
 		String[] days = {
 				"Monday",
 				"Tuesday",
@@ -50,7 +50,7 @@ public class Day
 
 		}
 		
-		scanner2.close();
+
 		
 		return schedule;
 	}

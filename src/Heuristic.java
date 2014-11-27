@@ -5,11 +5,14 @@ public class Heuristic {
 	 * @param args
 	 */
 	public static void main(String[] args) 
-	{
-		Day[] freedays = Day.freetimes();
+	{	
+		Scanner scanner2 = new Scanner( System.in);
+		Day[] freedays = Day.freetimes(scanner2);
 		System.out.print(freedays.length);
 		//Proof of concept code here
-		/*Scanner scanner1 = new Scanner( System.in );
+		
+		
+		Scanner scanner1 = new Scanner( System.in );
 	
 		int value =1;
 
@@ -30,7 +33,8 @@ public class Heuristic {
 		//System.out.print(exercises[1].mgroup);
 		
 
-		scanner1.close();*/
+		scanner1.close();
+		scanner2.close();
 
 		
 		
