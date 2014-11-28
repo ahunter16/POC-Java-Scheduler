@@ -58,23 +58,35 @@ public class Heuristic {
 		}
 		
 		Arrays.sort(exercises);
-		
+		int count = 0;
+		int j = 0;
 		for (int i = 0; i < exercises.length; i++)
 		{
-			for(int j = 0; j < workouts.length; j++)
+			if (count < workouts.length)
 			{
-				if (workouts[j].time + exercises[i].comptime < workouts[j].maxtime)
-				{
-					workouts[j].exercises[workouts[j].count] = exercises[i];
-					workouts[j].count++;
-					workouts[j].time += exercises[i].comptime;
-					break;
-				}
-				
+				j = count; 
+			}
+			else
+			{
+				j = 0;
+				count = 0;
+			}
+			if (workouts[j].time + exercises[i].comptime < workouts[j].maxtime)
+			{
+				workouts[j].exercises[workouts[j].count] = exercises[i];
+				workouts[j].count++;
+				workouts[j].time += exercises[i].comptime;
+				count++;
 			}
 		}
-
-		System.out.print(workouts[0].time);
+		for (int i = 0; i < workouts.length; i++)
+		{
+			System.out.print("\n" + days[i].name + ": " + workouts[i].time + " seconds - ");
+/*			for(int k = 0; k < workouts[i].exercises.length; k++)
+			{
+				System.out.print(workouts[i].exercises[k].name + workouts[i].exercises[k].comptime);
+			}*/
+		}
 
 		
 		
