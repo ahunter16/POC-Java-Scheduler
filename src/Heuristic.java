@@ -48,7 +48,11 @@ public class Heuristic {
 	
 	static Workout[] algorithm(Day[] days, Exercise[] exercises)
 	{
-		Workout[] workouts;
+		Workout[] workouts = new Workout[days.length];
+		for (int i = 0; i < days.length; i ++)
+		{
+			
+		}
 		
 		
 		return workouts;

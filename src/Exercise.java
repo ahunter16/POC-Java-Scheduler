@@ -1,5 +1,5 @@
 
-public class Exercise
+public class Exercise implements Comparable<Exercise>
 {
 	String name;		//name of exercise
 	String mgroup; 		//main muscle group
@@ -122,5 +122,18 @@ public class Exercise
 		return newname;
 		
 		
+	}
+	public int getTime()
+	{
+		return comptime;
+	}
+	
+	public int compareTo(Exercise compareExercise) 
+	{
+		 
+		int compareTime = ((Exercise) compareExercise).getTime(); 
+ 
+		//ascending order
+		return this.comptime - compareTime;
 	}
 }
