@@ -33,6 +33,8 @@ public class Heuristic {
 			}
 			Workout[] workouts = algorithm(freedays, exercises);
 			
+	
+			
 			//print workouts[0].
 		//}
 		
@@ -49,10 +51,32 @@ public class Heuristic {
 	static Workout[] algorithm(Day[] days, Exercise[] exercises)
 	{
 		Workout[] workouts = new Workout[days.length];
+		
 		for (int i = 0; i < days.length; i ++)
 		{
-			
+			workouts[i] = new Workout(days[i].freetime, exercises.length);
 		}
+		
+		Arrays.sort(exercises);
+		
+		for (int i = 0; i < exercises.length; i++)
+		{
+			for(int j = 0; j < workouts.length; j++)
+			{
+				if (workouts[j].time + exercises[i].comptime < workouts[j].maxtime)
+				{
+					workouts[j].exercises[workouts[j].count] = exercises[i];
+					workouts[j].count++;
+					workouts[j].time += exercises[i].comptime;
+					break;
+				}
+				
+			}
+		}
+
+		System.out.print(workouts[0].time);
+
+		
 		
 		
 		return workouts;

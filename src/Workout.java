@@ -1,12 +1,13 @@
 
 public class Workout 
 {
-	char skill;
-	double time;
+	//char skill;
+	int count;
+	int time;
 	Exercise[] exercises;
 	int maxtime;
 	
-	public int timecalc(Exercise[] exercises)	//calculates time taken to do a workout
+	public static int timecalc(Exercise[] exercises)	//calculates time taken to do a workout
 	{
 		int total= 0;
 		for (int i = 0; i < exercises.length; i++)
@@ -18,11 +19,12 @@ public class Workout
 		
 	}
 	
-	public Workout(char myskill, Exercise[] myexercises, int mymaxtime)
+	public Workout(int mymaxtime, int exlength)
 	{
-		skill = myskill;
-		time = timecalc(myexercises);
-		exercises = myexercises;
+		//skill = myskill;
+		count = 0;
+		time = 0;
+		exercises = new Exercise[exlength];
 		maxtime = mymaxtime;
 		
 	}
