@@ -46,7 +46,7 @@ public class Day
 		for (int i = 0; i < free.size(); i ++)
 		{
 			System.out.print("\nhow many hours are you free for on " + free.get(i) + "\n");
-			schedule[i] = new Day(free.get(i).toString(), scanner2.nextInt());
+			schedule[i] = new Day(free.get(i).toString(), 3600*scanner2.nextInt());
 
 		}
 		
