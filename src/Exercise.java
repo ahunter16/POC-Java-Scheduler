@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 public class Exercise implements Comparable<Exercise>
 {
@@ -10,9 +12,10 @@ public class Exercise implements Comparable<Exercise>
 	int reptime;		//rough time taken to complete a rep
 	int sets;			//number of sets
 	int comptime;		//time taken to complete all sets of an exercise
+	int rating;
 	
 	public Exercise(String myname, String mymgroup, String[] myegroups, 
-			int myrepnumb, char myskill, int myrest, int myreptime, int mysets, int mycomptime)
+			int myrepnumb, char myskill, int myrest, int myreptime, int mysets, int mycomptime, int myrating)
 	{
 		name = myname;
 		mgroup = mymgroup;
@@ -23,6 +26,7 @@ public class Exercise implements Comparable<Exercise>
 		reptime = myreptime;
 		sets = mysets;
 		comptime = mycomptime;
+		rating = myrating;
 		
 	}
 	
@@ -65,7 +69,7 @@ public class Exercise implements Comparable<Exercise>
 		int time = 0;
 		tmpexercise= new Exercise(exname, allgroups[elemnum], groups, 
 				(int)(10*Math.random()+1), 'i', (int)(100*Math.random()+10), 
-				(int)(10*Math.random()+1), (int)(10*Math.random()+1), time);
+				(int)(10*Math.random()+1), (int)(10*Math.random()+1), time, 3);
 		
 		time = ((tmpexercise.repnumb * tmpexercise.reptime) + tmpexercise.rest)* tmpexercise.sets - tmpexercise.rest;
 		tmpexercise.comptime = time;
@@ -135,5 +139,13 @@ public class Exercise implements Comparable<Exercise>
  
 		//ascending order
 		return this.comptime - compareTime;
+	}
+	
+	public int rate(Exercise exercise, Scanner scanner)
+	{
+		System.out.print("\nPlease enter a rating for the exercise: " + "\"" + exercise.name + "\"\n");
+		return scanner.nextInt();
+		
+		
 	}
 }
