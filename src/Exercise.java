@@ -143,9 +143,18 @@ public class Exercise implements Comparable<Exercise>
 	
 	public int rate(Exercise exercise, Scanner scanner)
 	{
-		System.out.print("\nPlease enter a rating for the exercise: " + "\"" + exercise.name + "\"\n");
-		return scanner.nextInt();
-		
+		System.out.print("\nPlease enter a rating for the exercise: " + "\"" + 
+	exercise.name + "\"\nCurrent Rating: " + exercise.rating + "/5");
+		int value = scanner.nextInt();
+		if (value > 0 && value < 6)
+		{
+			return value;
+		}
+		else
+		{
+			System.out.print("Invalid score entered. Please rate the exercise with 1 - 5 stars");
+			return exercise.rating;
+		}
 		
 	}
 }

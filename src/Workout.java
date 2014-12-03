@@ -6,6 +6,8 @@ public class Workout
 	int time;
 	Exercise[] exercises;
 	int maxtime;
+	String dayname;
+	int dayno;
 	
 	public static int timecalc(Exercise[] exercises)	//calculates time taken to do a workout
 	{
@@ -19,13 +21,15 @@ public class Workout
 		
 	}
 	
-	public Workout(int mymaxtime, int exlength)
+	public Workout(int maxtime, int exlength, String dayname, int dayno)
 	{
-		//skill = myskill;
 		count = 0;
 		time = 0;
 		exercises = new Exercise[exlength];
-		maxtime = mymaxtime;
+		this.maxtime = maxtime;
+		this.dayname = dayname;
+		this.dayno = dayno;
+		
 		
 	}
 	
