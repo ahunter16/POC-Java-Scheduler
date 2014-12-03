@@ -1,17 +1,18 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+
 
 //import java.util.*;
 public class Day 
 {
-	//Hashtable times = new Hashtable();
 	String name;
 	int freetime;
+	int dayno;
 	
-	public Day(String myname, int mytime)
+	public Day(String name, int freetime, int dayno)
 	{
-		name = myname;
-		freetime = mytime;
+		this.name = name;
+		this.freetime = freetime;
+		this.dayno = dayno;
 	}
 	
 	static Day[] freetimes(Scanner scanner2)
@@ -27,10 +28,16 @@ public class Day
 				"Saturday",
 				"Sunday"
 		};
-		ArrayList<String> free = new ArrayList<String>();
-		String value;
-
+		String[] frees = new String[7];
 		
+		//ArrayList<String> free = new ArrayList<String>();
+		//ArrayList<Integer> daynums = new ArrayList<Integer>();
+		String value;
+		
+		int counter = 0;
+		
+		
+		//HashMap free = new HashMap();
 		for(int i = 0; i < 7; i ++)
 		{
 			System.out.print("\nare you free on " + days[i] + "? (y/n)\n");
@@ -38,16 +45,21 @@ public class Day
 			
 			if ("y".equals(value))
 			{
-				free.add(days[i]);
+				//free.put(counter, days[i]);
+				frees[counter] = days[i];
+				counter ++;
+				/*free.add(days[i]);
+				daynums.add(i);*/
 			}
-			
 		}
-		schedule = new Day[free.size()];
-		for (int i = 0; i < free.size(); i ++)
+		
+		schedule = new Day[counter];//free.size()];
+		for (int i = 0; i < counter; i ++)//free.size(); i ++)
 		{
-			System.out.print("\nhow many hours are you free for on " + free.get(i) + "\n");
-			schedule[i] = new Day(free.get(i).toString(), 3600*scanner2.nextInt());
-
+			
+			System.out.print("\nhow many hours are you free for on " + frees[i]/*free.get(i)*/ + "\n");
+			schedule[i] = new Day(frees[i], 3600*scanner2.nextInt(), i);//free.get(i).toString(), 3600*scanner2.nextInt(), daynums.get(i).toString());
+			
 		}
 		
 

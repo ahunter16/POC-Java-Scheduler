@@ -54,6 +54,7 @@ public class Heuristic {
 		
 		for (int i = 0; i < days.length; i ++)
 		{
+			//System.out.print("\n" + i + days[i].name);
 			workouts[i] = new Workout(days[i].freetime, exercises.length);
 		}
 		
@@ -82,7 +83,7 @@ public class Heuristic {
 		for (int i = 0; i < workouts.length; i++)
 		{
 			System.out.print("\n==============================\n");
-			System.out.print("\n" + days[i].name + ": " + workouts[i].count + " exercises, "+ workouts[i].time + " seconds - ");
+			System.out.print("\n" + days[i].name + ": " + workouts[i].count + " exercises, "+ workouts[i].time + " seconds: \n ");
 			if (workouts[i].count > 0)
 			{
 				for(int k = 0; k < workouts[i].count; k++)

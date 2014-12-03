@@ -14,19 +14,19 @@ public class Exercise implements Comparable<Exercise>
 	int comptime;		//time taken to complete all sets of an exercise
 	int rating;
 	
-	public Exercise(String myname, String mymgroup, String[] myegroups, 
-			int myrepnumb, char myskill, int myrest, int myreptime, int mysets, int mycomptime, int myrating)
+	public Exercise(String name, String mgroup, String[] egroups, 
+			int repnumb, char skill, int rest, int reptime, int sets, int comptime, int rating)
 	{
-		name = myname;
-		mgroup = mymgroup;
-		egroups = myegroups;
-		repnumb = myrepnumb;
-		skill = myskill;
-		rest = myrest;
-		reptime = myreptime;
-		sets = mysets;
-		comptime = mycomptime;
-		rating = myrating;
+		this.name = name;
+		this.mgroup = mgroup;
+		this.egroups = egroups;
+		this.repnumb = repnumb;
+		this.skill = skill;
+		this.rest = rest;
+		this.reptime = reptime;
+		this.sets = sets;
+		this.comptime = comptime;
+		this.rating = rating;
 		
 	}
 	
