@@ -30,8 +30,32 @@ public class Exercise implements Comparable<Exercise>
 		
 	}
 	
+	//generates a list of exercises using the genex() function
+	static Exercise[] genexlist(Scanner scanner)
+	{
+		int value = 1;
+
+		Exercise exercise;
+		Exercise[] exercises;
+		
+		//scanner1, return exercises 
+		System.out.print("\nMake how many exercises? (0 terminates):\n");
+		value = scanner.nextInt();
+		exercises = new Exercise[value];
+		for (int i = 0; i < value; i ++)
+		{
+			exercise = genex();
+			System.out.print(exercise.name+", "+exercise.comptime+"s, Rating: " +exercise.rating + "/5\n");
+			exercises[i] = exercise;
+			
+		}
+		return exercises;
+	}
+	
+	//generates a single random exercise, with random fields and a random name 
 	static Exercise genex() 
 	{	
+		
 		//array representing 13 major muscle groups. provisional.
 		String[] allgroups = 
 			{	"Abdominal", 
@@ -95,13 +119,13 @@ public class Exercise implements Comparable<Exercise>
 				"jumps"
 			};
 		
-		String[] vowels = {"a", "e", "i", "o", "u" };
+		//String[] vowels = {"a", "e", "i", "o", "u" };
 		
 		String newname;
 		
 		int chop = 0;
 		//System.out.print(name.substring(name.length()-1));
-		if ((String)name.substring(name.length()-1) == "s")
+/*		if ((String)name.substring(name.length()-1) == "s")
 		{
 			chop = 1;
 			System.out.print(name.substring(name.length()-2, name.length()-1));
@@ -113,7 +137,7 @@ public class Exercise implements Comparable<Exercise>
 					break;
 				}
 			}
-		}
+		}*/
 		
 		if (chop == 1)
 		{
@@ -141,7 +165,7 @@ public class Exercise implements Comparable<Exercise>
 		return this.comptime - compareTime;
 	}
 	
-	public int rate(Exercise exercise, Scanner scanner)
+	static int rate(Exercise exercise, Scanner scanner)
 	{
 		System.out.print("\nPlease enter a rating for the exercise: " + "\"" + 
 	exercise.name + "\"\nCurrent Rating: " + exercise.rating + "/5");
@@ -152,8 +176,9 @@ public class Exercise implements Comparable<Exercise>
 		}
 		else
 		{
-			System.out.print("Invalid score entered. Please rate the exercise with 1 - 5 stars");
-			return exercise.rating;
+			System.out.print("Invalid score entered. Please rate the exercise with 1 - 5 stars\n");
+			int rating = rate(exercise, scanner);
+			return rating;
 		}
 		
 	}
