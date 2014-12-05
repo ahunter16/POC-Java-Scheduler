@@ -14,6 +14,7 @@ public class Exercise implements Comparable<Exercise>
 	int comptime;		//time taken to complete all sets of an exercise
 	int rating;
 	
+	//constructor for Exercise object
 	public Exercise(String name, String mgroup, String[] egroups, 
 			int repnumb, char skill, int rest, int reptime, int sets, int comptime, int rating)
 	{
@@ -30,7 +31,7 @@ public class Exercise implements Comparable<Exercise>
 		
 	}
 	
-	//generates a list of exercises using the genex() function
+	//generates a list of n exercises using the genex() function
 	static Exercise[] genexlist(Scanner scanner)
 	{
 		int value = 1;
@@ -38,14 +39,14 @@ public class Exercise implements Comparable<Exercise>
 		Exercise exercise;
 		Exercise[] exercises;
 		
-		//scanner1, return exercises 
+		
 		System.out.print("\nMake how many exercises? (0 terminates):\n");
 		value = scanner.nextInt();
 		exercises = new Exercise[value];
 		for (int i = 0; i < value; i ++)
 		{
 			exercise = genex();
-			System.out.print(exercise.name+", "+exercise.comptime+"s, Rating: " +exercise.rating + "/5\n");
+			System.out.print(exercise.name+", " + exercise.comptime+"s, Rating: " +exercise.rating + "/5\n");
 			exercises[i] = exercise;
 			
 		}
@@ -119,25 +120,27 @@ public class Exercise implements Comparable<Exercise>
 				"jumps"
 			};
 		
-		//String[] vowels = {"a", "e", "i", "o", "u" };
+		String[] vowels = {"a", "e", "i", "o", "u" };
 		
 		String newname;
 		
 		int chop = 0;
-		//System.out.print(name.substring(name.length()-1));
-/*		if ((String)name.substring(name.length()-1) == "s")
+		
+		//the following removes "s" from body part names that
+		//don't have a vowel before, making names more realistic
+		if (name.substring(name.length()-1).equals("s"))
 		{
 			chop = 1;
-			System.out.print(name.substring(name.length()-2, name.length()-1));
+			
 			for (int i = 0; i < 5; i++)
 			{
-				if(name.substring(name.length()-2, name.length()-1) == vowels[i])
+				if(name.substring(name.length()-2, name.length()-1).equals(vowels[i]))
 				{
 					chop = 0;
 					break;
 				}
 			}
-		}*/
+		}
 		
 		if (chop == 1)
 		{
@@ -151,18 +154,22 @@ public class Exercise implements Comparable<Exercise>
 		
 		
 	}
+	
+	//returns the time in seconds to complete all sets of an exercise
 	public int getTime()
 	{
 		return comptime;
 	}
+	
+	//compares times taken to complete exercises
 	
 	public int compareTo(Exercise compareExercise) 
 	{
 		 
 		int compareTime = ((Exercise) compareExercise).getTime(); 
  
-		//ascending order
-		return this.comptime - compareTime;
+		//descending order
+		return compareTime - this.comptime;
 	}
 	
 	static int rate(Exercise exercise, Scanner scanner)

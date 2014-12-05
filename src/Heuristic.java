@@ -6,13 +6,17 @@ public class Heuristic {
 	{	
 		//create scanner to get user input
 		Scanner scanner1 = new Scanner( System.in);
-		//prompt user to either rate exersises or make a schedule
+		
+		//prompt user to either rate exercises or make a schedule
 		System.out.print("Would you like to rate exercises, or make a schedule? \n" +
 				"(type \"rate\" to rate exercises, or \"make\" to make a workout " +
 				"schedule with default ratings \n(\"end\" terminates)");
+		
 		//stores the name of the function the user wishes to carry out
 		String mode;
+		
 		mode = scanner1.next();
+		
 		//checks for valid input
 		while (!("rate".equals(mode)) && !("make".equals(mode))&& !("end".equals(mode)))
 		{
@@ -20,10 +24,12 @@ public class Heuristic {
 					"or \"make\" to make a workout schedule with default ratings\n");
 			mode = scanner1.next();
 		}
+		
 		//makes program run unless "end" is typed when prompted
 		while (!("end".equals(mode)))
 		{
 			Exercise[] exercises = Exercise.genexlist(scanner1);
+			
 			//allows user to rate the list of exercises before making a schedule
 			if ("rate".equals(mode))
 			{
@@ -36,12 +42,13 @@ public class Heuristic {
 					System.out.print(exercises[i].name+", "+exercises[i].comptime+"s, Rating: " + exercises[i].rating + "/5\n");
 				}
 			}
+			
 			//makes workout schedule for user
 			Day[] freedays = Day.freetimes(scanner1);
 			System.out.print("Number of days: " + freedays.length);
-			
-			
+		
 			Workout[] workouts = algorithm(freedays, exercises);
+			
 			//allows program to either be run again or terminated
 			System.out.print("\nType \"rate\" to rate new exercises, " +
 					"\"make\" to make a new schedule, or \"end\" to terminate\n");
@@ -86,6 +93,7 @@ public class Heuristic {
 				j++;
 			}
 		}
+		
 		//heuristic over: this section prints out the workout schedule
 		for (int i = 0; i < workouts.length; i++)
 		{
